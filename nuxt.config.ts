@@ -2,7 +2,7 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
   modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss'],
@@ -25,10 +25,6 @@ export default defineNuxtConfig({
 
   typescript: {
     strict: false,
-  },
-
-  dir: {
-    plugins: './app/plugins',
   },
 
   ssr: true,
