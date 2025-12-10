@@ -12,8 +12,8 @@ export const useUserForm = () => {
   // Расчет максимальной и минимальной даты рождения
   const vuetifyDate = useDate()
   const today = new Date()
-  const maxDateOfBirth = vuetifyDate.setYear(today, vuetifyDate.getYear(today) - 18)
-  const minDateOfBirth = vuetifyDate.setYear(today, vuetifyDate.getYear(today) - 100)
+  const maxDateOfBirth = vuetifyDate.setYear(today, vuetifyDate.getYear(today) - 18) // не младше 180 лет
+  const minDateOfBirth = vuetifyDate.setYear(today, vuetifyDate.getYear(today) - 120) // не старше 120 лет
 
   const errors = ref<Partial<Record<keyof UserFormData, string>>>({})
 
@@ -45,7 +45,7 @@ export const useUserForm = () => {
     if (!form.value.email.trim()) {
       errors.value.email = 'Email обязателен для заполнения'
     } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
       if (!emailRegex.test(form.value.email)) {
         errors.value.email = 'Некорректный формат email'
       }
@@ -54,7 +54,7 @@ export const useUserForm = () => {
     if (!form.value.phone.trim()) {
       errors.value.phone = 'Телефон обязателен для заполнения'
     } else {
-      const phoneRegex = /^\+?[0-9-()]+$/
+      const phoneRegex = /^\+7-\d{3}-\d{3}-\d{2}-\d{2}$/ // +7-999-888-77-66
       if (!phoneRegex.test(form.value.phone)) {
         errors.value.phone = 'Некорректный формат телефона'
       }

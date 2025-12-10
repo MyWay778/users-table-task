@@ -1,12 +1,12 @@
-import vue from 'eslint-plugin-vue';
-import typescript from '@typescript-eslint/eslint-plugin';
-import typescriptParser from '@typescript-eslint/parser';
-import vueParser from 'vue-eslint-parser';
-import prettier from 'eslint-config-prettier';
+import vue from 'eslint-plugin-vue'
+import typescript from '@typescript-eslint/eslint-plugin'
+import typescriptParser from '@typescript-eslint/parser'
+import vueParser from 'vue-eslint-parser'
+import prettier from 'eslint-config-prettier'
 
 export default [
   {
-    ignores: ['.nuxt/**', '.output/**', 'dist/**', 'node_modules/**'],
+    ignores: ['.nuxt/**', '.output/**', 'dist/**', 'node_modules/**']
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,vue}'],
@@ -15,7 +15,7 @@ export default [
       parserOptions: {
         parser: typescriptParser,
         ecmaVersion: 2022,
-        sourceType: 'module',
+        sourceType: 'module'
       },
       globals: {
         // Browser globals
@@ -30,18 +30,20 @@ export default [
         __filename: 'readonly',
         module: 'readonly',
         require: 'readonly',
-        exports: 'readonly',
-      },
+        exports: 'readonly'
+      }
     },
     plugins: {
       vue: vue,
-      '@typescript-eslint': typescript,
+      '@typescript-eslint': typescript
     },
     rules: {
       ...vue.configs['vue3-recommended'].rules,
       ...typescript.configs.recommended.rules,
       'vue/multi-word-component-names': 'off',
-    },
+      '@typescript-eslint/no-unused-vars': 'warn',
+      'no-console': ['warn', { allow: ['warn'] }]
+    }
   },
-  prettier,
-];
+  prettier
+]
