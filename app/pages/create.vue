@@ -16,11 +16,11 @@
       <v-text-field v-model="form.phone" label="Телефон" :error-messages="errors.phone" variant="outlined" required
         class="mb-2" />
 
-      <div class="d-flex gap-4 flex-wrap">
-        <v-btn type="submit" color="primary" size="large" class="flex-grow-1 flex-md-grow-0">
+      <div class="flex gap-4 flex-wrap">
+        <v-btn type="submit" color="primary" size="large" class="grow md:grow-0">
           Создать
         </v-btn>
-        <v-btn variant="outlined" size="large" class="flex-grow-1 flex-md-grow-0" @click="handleCancel">
+        <v-btn variant="outlined" size="large" class="grow md:grow-0" @click="handleCancel">
           Отмена
         </v-btn>
       </div>

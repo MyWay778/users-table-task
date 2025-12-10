@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <div class="mb-6 d-flex justify-space-between align-center flex-wrap gap-4">
+    <div class="mb-6 flex justify-between items-center flex-wrap gap-4">
       <h1 class="text-2xl md:text-3xl font-bold">Список пользователей</h1>
-      <v-btn color="primary" to="/create" prepend-icon="mdi-plus" class="flex-shrink-0">
+      <v-btn color="primary" to="/create" prepend-icon="mdi-plus" class="shrink-0">
         Создать пользователя
       </v-btn>
     </div>
@@ -23,14 +23,14 @@
       :items="filteredUsers"
       :items-per-page="itemsPerPage"
       :items-per-page-options="[10, 25, 50, 100]"
-      class="elevation-1 data-table-custom"
+      class="shadow-sm data-table-custom"
       @update:items-per-page="itemsPerPage = $event"
     >
       <template #item.dateOfBirth="{ value }">
         {{ formatDate(value) }}
       </template>
       <template #item.actions="{ item }">
-        <div class="d-flex gap-2">
+        <div class="flex gap-2">
           <v-btn icon="mdi-pencil" size="small" variant="text" @click="openEditDialog(item)" />
           <v-btn
             icon="mdi-delete"
@@ -47,7 +47,7 @@
 
     <v-dialog v-model="deleteDialog" max-width="400">
       <v-card>
-        <v-card-title class="text-h6">Подтверждение удаления</v-card-title>
+        <v-card-title class="text-lg font-semibold">Подтверждение удаления</v-card-title>
         <v-card-text>
           Вы уверены, что хотите удалить пользователя
           <strong>{{ selectedUser?.fullName }}</strong

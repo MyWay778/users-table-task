@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss'],
 
-  css: ['vuetify/styles'],
+  css: ['~/styles/vuetify-custom.scss'],
 
   vite: {
     plugins: [vuetify({ autoImport: true })],
@@ -15,6 +15,14 @@ export default defineNuxtConfig({
     vue: {
       template: {
         transformAssetUrls,
+      },
+    },
+
+    css: {
+      preprocessorOptions: {
+        scss: {
+          quietDeps: true,
+        },
       },
     },
   },

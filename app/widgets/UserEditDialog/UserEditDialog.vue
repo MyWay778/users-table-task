@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" max-width="600" persistent>
     <v-card>
-      <v-card-title class="text-h6">Редактирование пользователя</v-card-title>
+      <v-card-title class="text-lg font-semibold">Редактирование пользователя</v-card-title>
 
       <v-card-text>
         <v-form ref="formRef" @submit.prevent="handleSubmit">

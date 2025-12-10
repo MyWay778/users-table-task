@@ -3,7 +3,7 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import { VDateInput } from 'vuetify/labs/VDateInput'
 import { ru } from 'vuetify/locale'
 import '@mdi/font/css/materialdesignicons.css'
-import 'vuetify/styles'
+import '~/styles/vuetify-custom.scss'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({

@@ -1,0 +1,4 @@
+// Disable Vuetify utility classes
+@use 'vuetify/styles' with (
+  $utilities: false
+);
