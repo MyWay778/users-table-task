@@ -65,14 +65,14 @@
       <v-card-text class="mt-6">
         <v-form
           ref="formRef"
+          class="flex flex-col gap-2"
           @submit.prevent="handleSubmit">
           <v-text-field
             v-model="form.fullName"
             label="ФИО"
             :error-messages="errors.fullName"
             variant="outlined"
-            required
-            class="mb-4" />
+            required />
 
           <v-date-input
             v-model="form.dateOfBirth"
@@ -92,8 +92,7 @@
             type="email"
             :error-messages="errors.email"
             variant="outlined"
-            required
-            class="mb-4" />
+            required />
 
           <PhoneInput
             v-model="form.phone"
