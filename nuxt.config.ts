@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt'],
 
   vite: {
-    plugins: [tailwindcss(), vuetify({ autoImport: true })],
+    plugins: [vuetify({ autoImport: true }), tailwindcss()],
 
     vue: {
       template: {
@@ -25,6 +25,10 @@ export default defineNuxtConfig({
           quietDeps: true
         }
       }
+    },
+
+    build: {
+      sourcemap: false
     }
   },
 
