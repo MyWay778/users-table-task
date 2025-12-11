@@ -6,10 +6,10 @@ export default {
     './app/pages/**/*.vue',
     './app/plugins/**/*.{js,ts}',
     './app/app.vue',
-    './app/error.vue',
+    './app/error.vue'
   ],
   theme: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 }

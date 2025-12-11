@@ -5,34 +5,34 @@ import { ru } from 'vuetify/locale'
 import '@mdi/font/css/materialdesignicons.css'
 import '~/styles/vuetify-custom.scss'
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(nuxtApp => {
   const vuetify = createVuetify({
     components: {
-      VDateInput,
+      VDateInput
     },
     icons: {
       defaultSet: 'mdi',
       aliases,
       sets: {
-        mdi,
-      },
+        mdi
+      }
     },
     theme: {
-      defaultTheme: 'light',
+      defaultTheme: 'light'
     },
     date: {
       formats: {
         // for built-in adapter
-        weekdayNarrow: { weekday: 'narrow' },
-      },
+        weekdayNarrow: { weekday: 'narrow' }
+      }
     },
     locale: {
       locale: 'ru',
       messages: {
-        ru,
-      },
+        ru
+      }
     },
-    ssr: true,
+    ssr: true
   })
 
   nuxtApp.vueApp.use(vuetify)

@@ -43,7 +43,7 @@
       emit('saved')
       model.value = false
     } catch (error) {
-      console.error('Error updating user:', error)
+      console.warn('Error updating user:', error)
     }
   }
 
