@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { useUserForm } from '@/shared/composables/useUserForm'
+  import { useUsersStore } from '@/entities/user'
   import { PhoneInput } from '@/shared/ui'
 
   const ROUTE_HOME = '/'

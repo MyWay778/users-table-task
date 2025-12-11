@@ -42,7 +42,13 @@ export default [
       ...typescript.configs.recommended.rules,
       'vue/multi-word-component-names': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
-      'no-console': ['warn', { allow: ['warn'] }]
+      'no-console': ['warn', { allow: ['warn'] }],
+      'vue/component-tags-order': [
+        'error',
+        {
+          order: ['script', 'template', 'style']
+        }
+      ] // для версии eslint больше 10, переименовать в vue/block-order
     }
   },
   prettier

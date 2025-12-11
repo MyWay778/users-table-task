@@ -1,4 +1,4 @@
-import type { UserFormData } from '~/shared/types/user'
+import type { UserFormData } from '~/entities/user/types/user'
 import { useDate } from 'vuetify'
 
 export const useUserForm = () => {
@@ -6,7 +6,7 @@ export const useUserForm = () => {
     fullName: '',
     dateOfBirth: '',
     email: '',
-    phone: '',
+    phone: ''
   })
 
   // Расчет максимальной и минимальной даты рождения
@@ -68,7 +68,7 @@ export const useUserForm = () => {
       fullName: '',
       dateOfBirth: '',
       email: '',
-      phone: '',
+      phone: ''
     }
     errors.value = {}
   }
@@ -85,6 +85,6 @@ export const useUserForm = () => {
     minDateOfBirth,
     validate,
     reset,
-    setFormData,
+    setFormData
   }
 }

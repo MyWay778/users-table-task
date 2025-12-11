@@ -1,3 +1,57 @@
+<script setup lang="ts">
+  import { useUserForm } from '@/shared/composables'
+  import { useUsersStore, type User } from '@/entities/user'
+  import { PhoneInput } from '@/shared/ui'
+
+  const model = defineModel<boolean>()
+  const props = defineProps<{ user: User | null }>()
+  const emit = defineEmits<{
+    saved: []
+  }>()
+
+  const usersStore = useUsersStore()
+  const { form, errors, maxDateOfBirth, minDateOfBirth, validate, setFormData } = useUserForm()
+
+  watch(
+    () => props.user,
+    user => {
+      if (user) {
+        setFormData({
+          fullName: user.fullName,
+          dateOfBirth: user.dateOfBirth,
+          email: user.email,
+          phone: user.phone
+        })
+      }
+    },
+    { immediate: true }
+  )
+
+  const handleSubmit = () => {
+    if (!validate() || !props.user) {
+      return
+    }
+
+    try {
+      usersStore.updateUser(props.user.id, {
+        fullName: form.value.fullName,
+        dateOfBirth: form.value.dateOfBirth,
+        email: form.value.email,
+        phone: form.value.phone
+      })
+
+      emit('saved')
+      model.value = false
+    } catch (error) {
+      console.error('Error updating user:', error)
+    }
+  }
+
+  const handleCancel = () => {
+    model.value = false
+  }
+</script>
+
 <template>
   <v-dialog
     v-model="model"
@@ -65,57 +119,3 @@
     </v-card>
   </v-dialog>
 </template>
-
-<script setup lang="ts">
-  import { useUserForm } from '@/shared/composables'
-  import type { User } from '@/shared/types/user'
-  import { PhoneInput } from '@/shared/ui'
-
-  const model = defineModel<boolean>()
-  const props = defineProps<{ user: User | null }>()
-  const emit = defineEmits<{
-    saved: []
-  }>()
-
-  const usersStore = useUsersStore()
-  const { form, errors, maxDateOfBirth, minDateOfBirth, validate, setFormData } = useUserForm()
-
-  watch(
-    () => props.user,
-    user => {
-      if (user) {
-        setFormData({
-          fullName: user.fullName,
-          dateOfBirth: user.dateOfBirth,
-          email: user.email,
-          phone: user.phone
-        })
-      }
-    },
-    { immediate: true }
-  )
-
-  const handleSubmit = () => {
-    if (!validate() || !props.user) {
-      return
-    }
-
-    try {
-      usersStore.updateUser(props.user.id, {
-        fullName: form.value.fullName,
-        dateOfBirth: form.value.dateOfBirth,
-        email: form.value.email,
-        phone: form.value.phone
-      })
-
-      emit('saved')
-      model.value = false
-    } catch (error) {
-      console.error('Error updating user:', error)
-    }
-  }
-
-  const handleCancel = () => {
-    model.value = false
-  }
-</script>

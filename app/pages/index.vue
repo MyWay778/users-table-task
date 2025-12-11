@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import type { User } from '~/shared/types/user'
-  import UserEditDialog from '~/widgets/UserEditDialog/UserEditDialog.vue'
+  import UserEditDialog from '@/widgets/UserEditDialog/UserEditDialog.vue'
+  import { useUsersStore, type User } from '@/entities/user'
 
   const usersStore = useUsersStore()
   const search = ref('')
